@@ -9,6 +9,7 @@ const Banner = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-8 banner-main mt-3">
+            <div className="hover-block"></div>
             <div className="img-wrapper">
               <img className="img-fluid" src={banner1} alt="banner main img" />
             </div>
@@ -37,6 +38,7 @@ const Banner = () => {
                   alt="banner right img 1"
                   className="img-fluid"
                 />
+                <div className="hover-block"></div>
               </div>
               <div className="col-12 banner-right-2 mt-3">
                 <div className="banner-right-content">
@@ -52,6 +54,7 @@ const Banner = () => {
                   alt="banner right img 2"
                   className="img-fluid"
                 />
+                <div className="hover-block"></div>
               </div>
             </div>
           </div>
