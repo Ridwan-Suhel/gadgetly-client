@@ -2,10 +2,30 @@
   height: 450px;
 }
 .banner .banner-main {
+  position: relative;
+  cursor: pointer;
 }
-.banner .banner-main img {
+.banner .banner-main .img-wrapper {
+  overflow: hidden !important;
+}
+.banner .banner-main .img-wrapper img {
   height: 450px;
   object-fit: cover;
+  object-position: -230px center;
+  transform: scale(1);
+  transition: all 0.4s ease-in-out;
+}
+.banner .banner-main:hover .img-wrapper img {
+  transform: scale(1.07);
+}
+.banner-content {
+  position: absolute;
+  top: 120px;
+  left: 30px;
+  width: 100%;
+}
+.banner-content h2 {
+  font-family: "Crimson Pro", serif;
 }
 .banner {
   position: relative;
@@ -16,14 +36,32 @@
   position: relative;
   width: 100%;
   height: 216.5px;
+  cursor: pointer;
+  overflow: hidden;
 }
 .banner .right-boxes-wrapper .banner-right-1 img,
 .banner .right-boxes-wrapper .banner-right-2 img {
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 200px;
+  width: 170px;
+
+  transform: scale(1);
+  transition: all 0.4s ease-in-out;
 }
 .banner .right-boxes-wrapper .banner-right-2 {
   background: #fafafa;
+}
+.banner-right-content {
+  margin-top: 50px;
+}
+.banner-right-content h2 {
+  font-weight: 700;
+  line-height: 1.01;
+  /* color: #0D6EFD; */
+  color: #000;
+}
+.banner .right-boxes-wrapper .banner-right-1:hover img,
+.banner .right-boxes-wrapper .banner-right-2:hover img {
+  transform: scale(1.1);
 }
