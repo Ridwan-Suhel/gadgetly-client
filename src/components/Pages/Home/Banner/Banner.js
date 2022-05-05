@@ -5,7 +5,7 @@ import bannerRight from "../../../../images/banner-right-1.webp";
 import bannerRight2 from "../../../../images/banner-right-2.webp";
 const Banner = () => {
   return (
-    <section className="banner">
+    <section className="banner mb-5">
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-8 banner-main mt-3">

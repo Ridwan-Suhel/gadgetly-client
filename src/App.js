@@ -10,7 +10,7 @@ import Footer from "./components/Shared/Footer/Footer";
 
 function App() {
   return (
-    <div className="">
+    <>
       <Header />
       <Routes>
         <Route path="" element={<Home></Home>}></Route>
@@ -20,7 +20,7 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

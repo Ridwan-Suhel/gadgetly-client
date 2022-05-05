@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "6273e4d9cbd7a3fcefe74f97",
+    "image": "https://i.ibb.co/VDL5PL7/speaker.jpg",
+    "price": 103,
+    "quantity": 1,
+    "name": "Ykz a2i speaker",
+    "supplier": "JBL",
+    "description": "Jbl a2i the beast best base producer. Only 2022 special edition ultimate products."
+  },
+  {
+    "_id": "6273e4d9a7591fc767d59725",
+    "image": "https://i.ibb.co/n1HF6m0/refre.jpg",
+    "price": 111,
+    "quantity": 5,
+    "name": "Gen22 5o walton",
+    "supplier": "Walton",
+    "description": "Walton gen22 is the upcoming special product of upcoming Eid. Market leadng product."
+  },
+  {
+    "_id": "6273e4d947a74b2622755a4a",
+    "image": "https://i.ibb.co/KFZqmcW/phone-vivo.jpg",
+    "price": 90,
+    "quantity": 4,
+    "name": "M20 vivo trio",
+    "supplier": "Vivo",
+    "description": "Vivo the futuristic product of this era. All in one included most hyped product. "
+  },
+  {
+    "_id": "6273e4d9cbd7a3fcefe74367",
+    "image": "https://i.ibb.co/ccBND3W/phone-i.jpg",
+    "price": 28,
+    "quantity": 1,
+    "name": "IPhone Max 17",
+    "supplier": "Apple",
+    "description": "The extreme budget product of this year. Included All the new satisfied features."
+  },
+  {
+    "_id": "6273e4d9a7591fc767d59333",
+    "image": "https://i.ibb.co/nbNfYY2/phone.jpg",
+    "price": 233,
+    "quantity": 5,
+    "name": "Vivo max regx",
+    "supplier": "Vivo",
+    "description": "Max regx is the latest product of vivo. where included four camera and budget base product."
+  },
+  {
+    "_id": "6273e4d9cbd7a3fcefe743434",
+    "image": "https://i.ibb.co/DDzJsm7/headset.jpg",
+    "price": 23,
+    "quantity": 1,
+    "name": "Purify JBL y23",
+    "supplier": "JBL",
+    "description": "Jbl purify is the most selling headset product of this year. included wireless system and wired system."
+  },
+  {
+    "_id": "6273e4d9a7591fc767d592323",
+    "image": "https://i.ibb.co/GHsKCM7/g-machine.jpg",
+    "price": 343,
+    "quantity": 5,
+    "name": "G-machine prio",
+    "supplier": "Walton",
+    "description": "The machine of all in one, The most people loving product of all time in cluded six verios features."
+  },
+  {
+    "_id": "6273e4d9cbd7a3fcefe7498",
+    "image": "https://i.ibb.co/R93wrWs/clock-2.jpg",
+    "price": 435,
+    "quantity": 1,
+    "name": "Max watch 9.o",
+    "supplier": "Apple",
+    "description": "the apple exclusive dubai base product most requested produc of all time in our wearhouse."
+  },
+  {
+    "_id": "6273e4d9a7591fc767d59704",
+    "image": "https://i.ibb.co/fkw318L/clock-1.jpg",
+    "price": 54,
+    "quantity": 5,
+    "name": "Max watch 9.t",
+    "supplier": "Apple",
+    "description": "The modern looking apple watch product of all time. design by vinci da quen and people loved it so much."
+  }
+]

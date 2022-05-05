@@ -5,7 +5,7 @@ const Footer = () => {
   const year = date.getFullYear();
 
   return (
-    <footer className="mt-5 py-2">
+    <footer className="py-3">
       <div className="container">
         <p className=" mb-0">
           copyright &copy; {year} gadgetly. All rights reserved{" "}
