@@ -1,5 +1,5 @@
 .banner {
-  height: 450px;
+  height: 550px;
 }
 .banner .banner-main {
   position: relative;
@@ -9,11 +9,12 @@
   overflow: hidden !important;
 }
 .banner .banner-main .img-wrapper img {
-  height: 450px;
+  height: 550px;
   object-fit: cover;
   object-position: -230px center;
   transform: scale(1);
   transition: all 0.4s ease-in-out;
+  width: 100%;
 }
 .banner .banner-main:hover .img-wrapper img {
   transform: scale(1.07);
@@ -26,6 +27,7 @@
 }
 .banner-content h2 {
   font-family: "Crimson Pro", serif;
+  font-size: 48px;
 }
 .banner {
   position: relative;
@@ -35,7 +37,7 @@
   background: #fafafa;
   position: relative;
   width: 100%;
-  height: 216.5px;
+  height: 266.5px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -89,4 +91,49 @@
   top: 0px;
   opacity: 1;
   visibility: visible;
+}
+
+@media (max-width: 992px) {
+  .banner {
+    height: auto;
+  }
+  .banner .container-fluid {
+    width: 100% !important;
+  }
+  .banner .banner-main {
+    padding: 0px;
+  }
+  .banner .banner-main .img-wrapper img {
+    height: auto;
+    object-position: center center;
+  }
+  .banner .right-boxes-wrapper .banner-right-1 img,
+  .banner .right-boxes-wrapper .banner-right-2 img {
+    width: 110px;
+  }
+  .banner-content {
+    top: 120px;
+    left: 30px;
+    width: 90%;
+  }
+  .right-boxes-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
+}
+
+@media (max-width: 766px) {
+  .banner-content {
+    top: 50px;
+    left: 15px;
+    width: 90%;
+  }
+  .banner-content h2 {
+    font-size: 38px;
+  }
+  .banner .banner-main .img-wrapper img {
+    height: 300px;
+    object-position: center center;
+  }
 }
