@@ -8,6 +8,7 @@ import Header from "./components/Shared/Header/Header";
 import Footer from "./components/Shared/Footer/Footer";
 import InventoryDetails from "./components/Pages/Inventory/InventoryDetails/InventoryDetails";
 import ManageInventory from "./components/Pages/Inventory/ManageInventory";
+import AddInventory from "./components/Pages/Inventory/AddInventory/AddInventory";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
         <Route
           path="/inventory/:inventoryId"
           element={<InventoryDetails></InventoryDetails>}
+        ></Route>
+        <Route
+          path="/addinventory"
+          element={<AddInventory></AddInventory>}
         ></Route>
         <Route path="/notfound" element={<NotFound></NotFound>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
