@@ -9,6 +9,26 @@ const ManageInventory = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure want to delete?");
+    if (proceed) {
+      // console.log("delete", id);
+      const url = `http://localhost:5000/product/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            console.log("deleted", id);
+            const remaining = products.filter((product) => product._id !== id);
+            setProducts(remaining);
+          }
+        });
+    }
+  };
+
   return (
     <section className="manageInventory">
       <div className="container">
@@ -33,7 +53,12 @@ const ManageInventory = () => {
                       <td>{product.price}</td>
                       <td>
                         <div className="btn-wrapper d-flex">
-                          <div className="btn btn-danger me-3">Delete</div>
+                          <div
+                            className="btn btn-danger me-3"
+                            onClick={() => handleDelete(product._id)}
+                          >
+                            Delete
+                          </div>
                           <div className="btn btn-success">Add Item</div>
                         </div>
                       </td>
