@@ -6,7 +6,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {

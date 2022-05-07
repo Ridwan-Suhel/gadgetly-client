@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,6 +25,26 @@ const Login = () => {
   if (user) {
     navigate(from, { replace: true });
   }
+
+  let errMsg = error;
+
+  if (error) {
+    errMsg = "✖ Email or password Incorrect";
+  }
+
+  const [email, setEmail] = useState("");
+  const handleChange = (e) => {
+    const inEmail = e.target.value;
+    setEmail(inEmail);
+    console.log(inEmail);
+  };
+  // const emailRef = useRef();
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const handleReset = async () => {
+    await sendPasswordResetEmail(email);
+    toast("email sent");
+  };
+
   return (
     <section className="authentication">
       <div className="container">
@@ -37,6 +59,7 @@ const Login = () => {
                   {...register("email", { required: true })}
                   className="form-control mb-3"
                   placeholder="Write Your Email"
+                  onChange={handleChange}
                 />
                 <input
                   type="password"
@@ -52,10 +75,19 @@ const Login = () => {
               </form>
 
               <p className="lead my-3">
-                Don't have an account <Link to="/signup">Please Register</Link>
+                Forget Password?{" "}
+                <button onClick={handleReset} className="btn btn-link">
+                  Reset Password
+                </button>
               </p>
 
+              <p className="lead text-danger">{errMsg}</p>
+
               <SocialLogin></SocialLogin>
+
+              <p className="lead my-3">
+                Don't have an account? <Link to="/signup">Please Register</Link>
+              </p>
             </div>
           </div>
         </div>
