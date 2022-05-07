@@ -9,6 +9,8 @@ import Footer from "./components/Shared/Footer/Footer";
 import InventoryDetails from "./components/Pages/Inventory/InventoryDetails/InventoryDetails";
 import ManageInventory from "./components/Pages/Inventory/ManageInventory";
 import AddInventory from "./components/Pages/Inventory/AddInventory/AddInventory";
+import Login from "./components/Pages/Login/Login";
+import Signup from "./components/Pages/Signup/Signup";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         ></Route>
         <Route path="/notfound" element={<NotFound></NotFound>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<Signup></Signup>}></Route>
       </Routes>
       <Footer />
     </>
