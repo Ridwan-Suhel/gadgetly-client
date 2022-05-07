@@ -1,0 +1,28 @@
+.or {
+  text-align: center;
+  position: relative;
+}
+.or::before,
+.or::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 47%;
+  height: 1px;
+  background: #ddd;
+}
+.or::before {
+  left: 0;
+}
+.or::after {
+  right: 0;
+}
+.social-btn {
+}
+.social-btn button {
+}
+.social-btn button img {
+  width: 28px;
+  margin-right: 10px;
+}
