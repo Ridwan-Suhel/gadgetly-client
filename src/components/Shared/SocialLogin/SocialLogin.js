@@ -1,7 +1,25 @@
 import React from "react";
 import "./SocialLogin.css";
 import ggl from "../../../images/ggl.png";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { Navigate, useNavigate } from "react-router-dom";
 const SocialLogin = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
+
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+
+  if (user) {
+    navigate("/home");
+  }
+
   return (
     <div>
       <div className="or">OR</div>
