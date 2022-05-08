@@ -2,7 +2,7 @@
 
 Gadgetly is a wearhouse type website where can a registered user can update their product delete their product and they can see their wearhouse all products in one page.
 
-[Click here for live website](https://github.com/facebook/create-react-app).
+[Click here for live website](https://gadgetly-3045d.web.app/).
 
 ## Website's different features and functionality
 
