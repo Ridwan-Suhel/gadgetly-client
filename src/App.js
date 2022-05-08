@@ -14,6 +14,7 @@ import Signup from "./components/Pages/Signup/Signup";
 import RequiredAuth from "./components/Shared/RequiredAuth/RequiredAuth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MyItem from "./components/Pages/MyItem/MyItem";
 
 function App() {
   return (
@@ -46,10 +47,18 @@ function App() {
             </RequiredAuth>
           }
         ></Route>
-        <Route path="/notfound" element={<NotFound></NotFound>}></Route>
+        <Route
+          path="/myitem"
+          element={
+            <RequiredAuth>
+              <MyItem></MyItem>
+            </RequiredAuth>
+          }
+        ></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
       <Footer />

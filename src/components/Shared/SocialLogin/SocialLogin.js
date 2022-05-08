@@ -3,11 +3,14 @@ import "./SocialLogin.css";
 import ggl from "../../../images/ggl.png";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   // let errorElement = error?.message;
   // if (error) {
@@ -15,7 +18,7 @@ const SocialLogin = () => {
   // }
 
   if (user) {
-    navigate("/home");
+    navigate(from, { replace: true });
   }
 
   return (

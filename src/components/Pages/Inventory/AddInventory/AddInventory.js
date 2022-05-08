@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 const AddInventory = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
@@ -15,6 +16,7 @@ const AddInventory = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        toast("New Item Added");
         e.target.reset();
       });
   };
@@ -29,7 +31,12 @@ const AddInventory = () => {
               <input
                 {...register("name", { required: true, maxLength: 20 })}
                 className="form-control mb-3"
-                placeholder="Write name"
+                placeholder="Write product name"
+              />
+              <input
+                {...register("email", { required: true })}
+                className="form-control mb-3"
+                placeholder="Write your Email"
               />
               <input
                 {...register("supplier", { required: true })}
