@@ -4,15 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import axios from "axios";
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    const email = data.email;
-    const password = data.password;
+  const onSubmit = async (submitData) => {
+    const email = submitData?.email;
+    const password = submitData.password;
     createUserWithEmailAndPassword(email, password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    // console.log(data);
+    localStorage.setItem("accessToken", data.accessToken);
   };
   const navigate = useNavigate();
   if (user) {

@@ -8,24 +8,36 @@ const MyItem = () => {
   const [item, setItem] = useState([]);
   console.log(item);
   useEffect(() => {
-    const getItems = async () => {
-      const email = user.email;
-      const url = `https://fathomless-tor-80045.herokuapp.com/myproduct?email=${email}`;
-      const { data } = await axios.get(url, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
-      setItem(data);
-    };
-    getItems();
+    // const getItems = () => {
+    const email = user.email;
+    const url = `http://localhost:5000/myproduct?email=${email}`;
+    // const { data } = await axios.get(url, {
+    //   headers: {
+    //     // "content-type": "applicaion/json",
+    //     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    //   },
+    // });
+    // setItem(data);
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) =>
+      res.json().then((data) => {
+        setItem(data);
+        console.log(data);
+      })
+    );
+    // };
+    // getItems();
   }, [user]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure want to delete?");
     if (proceed) {
       // console.log("delete", id);
-      const url = `https://fathomless-tor-80045.herokuapp.com/myproduct/${id}`;
+      const url = `http://localhost:5000/myproduct/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -45,7 +57,7 @@ const MyItem = () => {
       <div className="container">
         <h1 className="py-5">You Have {item.length} Item</h1>
         <div className="row">
-          {item.map((i) => (
+          {item?.map((i) => (
             <div key={i._id} className="col-md-4 ">
               <div className="single-item-box border p-3">
                 <div className="img-wrapper">

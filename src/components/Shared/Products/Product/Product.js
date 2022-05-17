@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Product.css";
 
 const Product = ({ product }) => {
-  console.log(product);
+  // console.log(product);
   const { _id, image, name, supplier, quantity, price, description } = product;
   const navigate = useNavigate();
 

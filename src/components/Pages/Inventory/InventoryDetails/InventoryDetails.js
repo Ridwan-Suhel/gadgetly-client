@@ -4,28 +4,23 @@ import { useParams } from "react-router-dom";
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
   const [inventory, setInventory] = useState({});
-
-  let quan = inventory.quantity;
-
-  //   const [num, setNum] = useState(5);
-
+  const newQuantity = inventory.quantity - 1;
   useEffect(() => {
-    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
+    const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, []);
 
+  // ===============decrease one item =============
   const handleDelivered = () => {
-    // setNum(num - 1);
-    quan = quan - 1;
-    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
+    const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(quan),
+      body: JSON.stringify(newQuantity),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -33,6 +28,7 @@ const InventoryDetails = () => {
       });
   };
 
+  // ===============add quantity item =============
   const submitRestock = (event) => {
     event.preventDefault();
     const addQuantity = event.target.addQuantity.value;
@@ -41,7 +37,7 @@ const InventoryDetails = () => {
       addQuantityInNum,
     };
     console.log("quanty value", quanValue);
-    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
+    const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -71,7 +67,9 @@ const InventoryDetails = () => {
                 </h5>
                 <p className="lead">{inventory.description}</p>
                 <h4 className="">Price: ${inventory.price}</h4>
-                <li className="lead text-success">Quantity: {quan} units</li>
+                <li className="lead text-success">
+                  Quantity: {newQuantity} units
+                </li>
               </div>
               <div className="inventory-input mt-3">
                 <form
