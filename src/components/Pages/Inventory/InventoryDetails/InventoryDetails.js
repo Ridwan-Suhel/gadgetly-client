@@ -6,7 +6,7 @@ const InventoryDetails = () => {
   const [inventory, setInventory] = useState({});
   const newQuantity = inventory.quantity - 1;
   useEffect(() => {
-    const url = `http://localhost:5000/product/${inventoryId}`;
+    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setInventory(data));
@@ -14,7 +14,7 @@ const InventoryDetails = () => {
 
   // ===============decrease one item =============
   const handleDelivered = () => {
-    const url = `http://localhost:5000/product/${inventoryId}`;
+    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -37,7 +37,7 @@ const InventoryDetails = () => {
       addQuantityInNum,
     };
     console.log("quanty value", quanValue);
-    const url = `http://localhost:5000/product/${inventoryId}`;
+    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {

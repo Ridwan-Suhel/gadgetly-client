@@ -10,7 +10,7 @@ const MyItem = () => {
   useEffect(() => {
     // const getItems = () => {
     const email = user.email;
-    const url = `http://localhost:5000/myproduct?email=${email}`;
+    const url = `https://fathomless-tor-80045.herokuapp.com/myproduct?email=${email}`;
     // const { data } = await axios.get(url, {
     //   headers: {
     //     // "content-type": "applicaion/json",
@@ -37,7 +37,7 @@ const MyItem = () => {
     const proceed = window.confirm("Are you sure want to delete?");
     if (proceed) {
       // console.log("delete", id);
-      const url = `http://localhost:5000/myproduct/${id}`;
+      const url = `https://fathomless-tor-80045.herokuapp.com/myproduct/${id}`;
       fetch(url, {
         method: "DELETE",
       })

@@ -26,9 +26,12 @@ const SocialLogin = () => {
   if (user) {
     navigate(from, { replace: true });
     const handleFetch = async () => {
-      const { data } = await axios.post("http://localhost:5000/login", {
-        email,
-      });
+      const { data } = await axios.post(
+        "https://fathomless-tor-80045.herokuapp.com/login",
+        {
+          email,
+        }
+      );
       console.log(email, "token", data);
       localStorage.setItem("accessToken", data.accessToken);
     };
