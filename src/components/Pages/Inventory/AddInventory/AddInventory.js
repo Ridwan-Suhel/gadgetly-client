@@ -5,7 +5,7 @@ const AddInventory = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
     console.log(data);
-    const url = `https://fathomless-tor-80045.herokuapp.com/product`;
+    const url = `http://localhost:5000/product`;
     fetch(url, {
       method: "POST",
       headers: {

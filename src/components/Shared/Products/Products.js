@@ -4,7 +4,7 @@ import "./Products.css";
 const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://fathomless-tor-80045.herokuapp.com/product")
+    fetch("http://localhost:5000/product")
       .then((res) => res.json())
       .then((data) => setProducts(data.slice(0, 6)));
   }, []);
