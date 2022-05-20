@@ -1,17 +1,34 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import auth from "../../../../firebase.init";
 const AddInventory = () => {
+  const [user, loading, error] = useAuthState(auth);
   const { register, handleSubmit } = useForm();
+
+  const email = user.email;
+  const userEmail = { email };
+
   const onSubmit = (data, e) => {
     console.log(data);
+    const productInfo = {
+      email: email,
+      name: data.name,
+      supplier: data.supplier,
+      image: data.image,
+      price: data.price,
+      quantity: data.quantity,
+      description: data.description,
+    };
+
     const url = `http://localhost:5000/product`;
     fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(productInfo),
     })
       .then((res) => res.json())
       .then((result) => {
@@ -32,11 +49,6 @@ const AddInventory = () => {
                 {...register("name", { required: true, maxLength: 20 })}
                 className="form-control mb-3"
                 placeholder="Write product name"
-              />
-              <input
-                {...register("email", { required: true })}
-                className="form-control mb-3"
-                placeholder="Write your Email"
               />
               <input
                 {...register("supplier", { required: true })}
