@@ -36,32 +36,36 @@ const InventoryDetails = () => {
       .then((data) => {
         console.log("Hello from inventory details data", data);
         if (data?.modifiedCount) {
-          toast.success("Updating Data successfully. please wait.");
+          toast.success("Updating Data successfully. please wait...");
         }
       });
   };
 
   // ===============add quantity item =============
+
   const submitRestock = (event) => {
     event.preventDefault();
-    const addQuantity = event.target.addQuantity.value;
-    const addQuantityInNum = parseInt(addQuantity);
-    const quanValue = {
-      addQuantityInNum,
-    };
-    console.log("quanty value", quanValue);
+    let addQuantity = event.target.addQuantity.value;
+    const restockQuantity = parseInt(addQuantity);
+    const quantity = presentQuantityNumber + restockQuantity;
+
     const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(quanValue),
+      body: JSON.stringify({ quantity }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Hello from inventory details data", data);
+        console.log("Hello from inventory restock details data", data);
+        if (data?.modifiedCount) {
+          toast.success("Restocking Data successfully. please wait...");
+        }
       });
+
+    document.getElementById("stockFieldId").value = "";
   };
 
   return (
@@ -95,6 +99,7 @@ const InventoryDetails = () => {
                     type="number"
                     name="addQuantity"
                     className="form-control"
+                    id="stockFieldId"
                   />
                   <input
                     type="submit"
