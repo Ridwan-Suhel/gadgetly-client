@@ -14,6 +14,12 @@ const InventoryDetails = () => {
 
   const presentQuantity = inventory?.quantity;
   let presentQuantityNumber = Number(presentQuantity);
+  console.log(presentQuantity);
+
+  const [immidiateQuantity, setImmidaiateQuantity] = useState(
+    presentQuantityNumber
+  );
+  console.log(immidiateQuantity);
 
   if (isLoading) {
     return <Loading></Loading>;
@@ -41,13 +47,17 @@ const InventoryDetails = () => {
       });
   };
 
-  // ===============add quantity item =============
+  // ===============add/restock quantity item =============
 
   const submitRestock = (event) => {
     event.preventDefault();
     let addQuantity = event.target.addQuantity.value;
     const restockQuantity = parseInt(addQuantity);
     const quantity = presentQuantityNumber + restockQuantity;
+
+    const immidiateQuantityNumber = presentQuantityNumber + restockQuantity;
+    console.log(immidiateQuantityNumber);
+    setImmidaiateQuantity(immidiateQuantityNumber);
 
     const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url, {
@@ -85,8 +95,11 @@ const InventoryDetails = () => {
                 <p className="lead">{inventory.description}</p>
                 <h4 className="">Price: ${inventory.price}</h4>
                 <li className="lead text-success">
-                  Quantity: {presentQuantity} units.
+                  Quantity: {immidiateQuantity} units.
                 </li>
+                {/* <li className="lead text-success">
+                  Quantity: {presentQuantity} units.
+                </li> */}
               </div>
               {/* restock  */}
               <div className="inventory-input mt-3">

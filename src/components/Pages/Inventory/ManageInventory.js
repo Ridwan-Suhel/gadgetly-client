@@ -67,7 +67,9 @@ const ManageInventory = () => {
                     <tr key={product._id}>
                       <td>{product.supplier}</td>
                       <td>{product.name}</td>
-                      <td>{product.description.slice(0, 22).concat("...")}</td>
+                      <td>
+                        {product?.description?.slice(0, 22).concat("...")}
+                      </td>
                       <td>{product.price}</td>
                       <td>
                         <div className="btn-wrapper">
