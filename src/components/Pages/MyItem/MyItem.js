@@ -10,6 +10,8 @@ const MyItem = () => {
   useEffect(() => {
     // const getItems = () => {
     const email = user.email;
+    // const url = `http://localhost:5000/myproduct/${email}`;
+    // `https://stormy-plateau-22778.herokuapp.com/available?date=${formattedDate}`
     const url = `http://localhost:5000/myproduct?email=${email}`;
     // const { data } = await axios.get(url, {
     //   headers: {
