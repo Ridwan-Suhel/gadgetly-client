@@ -6,7 +6,7 @@ import Loading from "../../../Shared/Loading/Loading";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
-  const url = `http://localhost:5000/delivered/${inventoryId}`;
+  const url = `https://fathomless-tor-80045.herokuapp.com/delivered/${inventoryId}`;
 
   const { data: inventory, isLoading } = useQuery("inventoryDetails", () =>
     fetch(url).then((res) => res.json())
@@ -30,7 +30,7 @@ const InventoryDetails = () => {
   let handleDelivered = () => {
     const quantity = presentQuantityNumber - 1;
 
-    const url = `http://localhost:5000/product/${inventoryId}`;
+    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -59,7 +59,7 @@ const InventoryDetails = () => {
     console.log(immidiateQuantityNumber);
     setImmidaiateQuantity(immidiateQuantityNumber);
 
-    const url = `http://localhost:5000/product/${inventoryId}`;
+    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
