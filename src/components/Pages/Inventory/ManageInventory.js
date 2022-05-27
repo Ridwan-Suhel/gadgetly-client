@@ -6,7 +6,7 @@ import "./ManageInventory.css";
 const ManageInventory = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://fathomless-tor-80045.herokuapp.com/product")
+    fetch("http://localhost:5000/product")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -17,7 +17,7 @@ const ManageInventory = () => {
     const proceed = window.confirm("Are you sure want to delete?");
     if (proceed) {
       // console.log("delete", id);
-      const url = `https://fathomless-tor-80045.herokuapp.com/product/${id}`;
+      const url = `http://localhost:5000/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })

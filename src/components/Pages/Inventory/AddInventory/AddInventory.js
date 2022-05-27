@@ -22,7 +22,7 @@ const AddInventory = () => {
       description: data.description,
     };
 
-    const url = `https://fathomless-tor-80045.herokuapp.com/product`;
+    const url = `http://localhost:5000/product`;
     fetch(url, {
       method: "POST",
       headers: {

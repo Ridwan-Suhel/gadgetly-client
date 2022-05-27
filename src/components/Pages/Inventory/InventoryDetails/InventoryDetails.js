@@ -6,31 +6,34 @@ import Loading from "../../../Shared/Loading/Loading";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
-  const url = `https://fathomless-tor-80045.herokuapp.com/delivered/${inventoryId}`;
+  const url = `http://localhost:5000/delivered/${inventoryId}`;
 
-  const { data: inventory, isLoading } = useQuery("inventoryDetails", () =>
-    fetch(url).then((res) => res.json())
-  );
+  const {
+    data: inventory,
+    isLoading,
+    refetch,
+  } = useQuery("inventoryDetails", () => fetch(url).then((res) => res.json()));
+
+  console.log(inventory);
 
   const presentQuantity = inventory?.quantity;
   let presentQuantityNumber = Number(presentQuantity);
-  console.log(presentQuantity);
+  // console.log(presentQuantity);
 
   const [immidiateQuantity, setImmidaiateQuantity] = useState(
     presentQuantityNumber
   );
-  console.log(immidiateQuantity);
-
   if (isLoading) {
     return <Loading></Loading>;
   }
+  console.log(immidiateQuantity);
 
   // ===============decrease one item =============
 
   let handleDelivered = () => {
     const quantity = presentQuantityNumber - 1;
 
-    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
+    const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -42,6 +45,7 @@ const InventoryDetails = () => {
       .then((data) => {
         console.log("Hello from inventory details data", data);
         if (data?.modifiedCount) {
+          refetch();
           toast.success("Updating Data successfully. please wait...");
         }
       });
@@ -59,7 +63,7 @@ const InventoryDetails = () => {
     console.log(immidiateQuantityNumber);
     setImmidaiateQuantity(immidiateQuantityNumber);
 
-    const url = `https://fathomless-tor-80045.herokuapp.com/product/${inventoryId}`;
+    const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -71,6 +75,7 @@ const InventoryDetails = () => {
       .then((data) => {
         console.log("Hello from inventory restock details data", data);
         if (data?.modifiedCount) {
+          refetch();
           toast.success("Restocking Data successfully. please wait...");
         }
       });
@@ -85,17 +90,17 @@ const InventoryDetails = () => {
           <div className="col-md-5 mt-4">
             <div className="inventory-details border p-4">
               <div className="img-wrapper text-center">
-                <img className="img-fluid" src={inventory.image} alt="img" />
+                <img className="img-fluid" src={inventory?.image} alt="img" />
               </div>
               <div className="inventory-content mt-3">
-                <p className="text-secondary">{inventory.supplier}</p>
+                <p className="text-secondary">{inventory?.supplier}</p>
                 <h5 className="card-title text-primary">
-                  Name: {inventory.name}
+                  Name: {inventory?.name}
                 </h5>
-                <p className="lead">{inventory.description}</p>
-                <h4 className="">Price: ${inventory.price}</h4>
+                <p className="lead">{inventory?.description}</p>
+                <h4 className="">Price: ${inventory?.price}</h4>
                 <li className="lead text-success">
-                  Quantity: {immidiateQuantity} units.
+                  Quantity: {presentQuantity} units.
                 </li>
                 {/* <li className="lead text-success">
                   Quantity: {presentQuantity} units.
