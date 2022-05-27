@@ -5,11 +5,14 @@ import "./ManageInventory.css";
 
 const ManageInventory = () => {
   const [products, setProducts] = useState([]);
+  const [searchTxt, setSearchTxt] = useState("");
+
   useEffect(() => {
-    fetch("http://localhost:5000/product")
+    const url = `http://localhost:5000/product?supplier=${searchTxt}`;
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [searchTxt]);
 
   // console.log(products);
 
@@ -38,6 +41,12 @@ const ManageInventory = () => {
     navigate("/addinventory");
   };
 
+  const handleSearch = (e) => {
+    setSearchTxt(e.target.value);
+  };
+
+  console.log(searchTxt);
+
   return (
     <section className="manageInventory">
       <div className="container">
@@ -51,6 +60,16 @@ const ManageInventory = () => {
             </button>
           </div>
         </div>
+
+        {/* ========================handle search box  */}
+        <div className="search-box w-25 mb-4">
+          <input
+            type="text"
+            onChange={handleSearch}
+            className="input form-control"
+          />
+        </div>
+
         <div className="inventory-table">
           <div className="row">
             <div className="col-md-12">
