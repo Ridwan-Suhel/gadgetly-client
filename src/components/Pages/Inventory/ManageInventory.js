@@ -8,7 +8,7 @@ const ManageInventory = () => {
   const [searchTxt, setSearchTxt] = useState("");
 
   useEffect(() => {
-    const url = `http://localhost:5000/product?supplier=${searchTxt}`;
+    const url = `http://localhost:5000/product?search=${searchTxt}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -62,12 +62,17 @@ const ManageInventory = () => {
         </div>
 
         {/* ========================handle search box  */}
-        <div className="search-box w-25 mb-4">
-          <input
-            type="text"
-            onChange={handleSearch}
-            className="input form-control"
-          />
+        <div className="row mb-4">
+          <div className="col-lg-4">
+            <div className="search-box">
+              <input
+                type="text"
+                placeholder="Search by Product or Supplier"
+                onChange={handleSearch}
+                className="input form-control"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="inventory-table">

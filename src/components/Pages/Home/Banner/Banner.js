@@ -3,7 +3,9 @@ import "./Banner.css";
 import banner1 from "../../../../images/banner.webp";
 import bannerRight from "../../../../images/banner-right-1.webp";
 import bannerRight2 from "../../../../images/banner-right-2.webp";
+import { useNavigate } from "react-router-dom";
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <section className="banner mb-5">
       <div className="container-fluid">
@@ -29,7 +31,10 @@ const Banner = () => {
                   <h2 className="">
                     Techy <br className="d-none d-lg-block" /> Gadgets
                   </h2>
-                  <button className="btn btn-outline-dark py-1 rounded-0 mt-2">
+                  <button
+                    onClick={() => navigate("/manageInventory")}
+                    className="btn btn-outline-dark py-1 rounded-0 mt-2"
+                  >
                     All Products
                   </button>
                 </div>

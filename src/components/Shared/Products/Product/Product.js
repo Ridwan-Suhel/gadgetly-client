@@ -28,7 +28,7 @@ const Product = ({ product }) => {
               handleUpdate(_id);
             }}
           >
-            Stock Update
+            Update Stock
           </button>
         </div>
       </div>

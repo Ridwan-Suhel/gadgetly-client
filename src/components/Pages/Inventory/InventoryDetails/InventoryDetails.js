@@ -116,6 +116,7 @@ const InventoryDetails = () => {
                   <input
                     type="number"
                     name="addQuantity"
+                    placeholder="Restock"
                     className="form-control"
                     id="stockFieldId"
                   />
@@ -132,7 +133,7 @@ const InventoryDetails = () => {
                   className="btn d-block w-100 text-white py-2 my-1 delivered-btn"
                   onClick={handleDelivered}
                 >
-                  {isLoading ? "loading..." : "Delivered"}
+                  {isLoading ? "loading..." : "Delivered one"}
                 </button>
               </div>
             </div>
