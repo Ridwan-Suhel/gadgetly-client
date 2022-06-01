@@ -8,7 +8,7 @@ const ManageInventory = () => {
   const [searchTxt, setSearchTxt] = useState("");
 
   useEffect(() => {
-    const url = `http://localhost:5000/product?search=${searchTxt}`;
+    const url = `https://fathomless-tor-80045.herokuapp.com/product?search=${searchTxt}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -20,7 +20,7 @@ const ManageInventory = () => {
     const proceed = window.confirm("Are you sure want to delete?");
     if (proceed) {
       // console.log("delete", id);
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://fathomless-tor-80045.herokuapp.com/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })

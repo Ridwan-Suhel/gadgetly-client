@@ -14,7 +14,10 @@ const Signup = () => {
     const email = submitData?.email;
     const password = submitData.password;
     createUserWithEmailAndPassword(email, password);
-    const { data } = await axios.post("http://localhost:5000/login", { email });
+    const { data } = await axios.post(
+      "https://fathomless-tor-80045.herokuapp.com/login",
+      { email }
+    );
     // console.log(data);
     localStorage.setItem("accessToken", data.accessToken);
   };
