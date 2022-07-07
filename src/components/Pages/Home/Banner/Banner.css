@@ -11,7 +11,7 @@
 .banner .banner-main .img-wrapper img {
   height: 550px;
   object-fit: cover;
-  object-position: -230px center;
+  object-position: top left;
   transform: scale(1);
   transition: all 0.4s ease-in-out;
   width: 100%;
